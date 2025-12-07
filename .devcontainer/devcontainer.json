@@ -22,5 +22,5 @@
     "--cap-add=SYS_PTRACE",
     "--security-opt=seccomp=unconfined"
   ],
-  "postCreateCommand": "if [ ! -d \"$HOME/.dotfiles-basic\" ]; then git clone https://github.com/mikerowsey/dotfiles-basic.git \"$HOME/.dotfiles-basic\"; fi && cd \"$HOME/.dotfiles-basic\" && chmod +x bootstrap.sh && ./bootstrap.sh"
+ "postCreateCommand": "set -ex; if [ ! -d \"$HOME/.dotfiles-basic\" ]; then git clone https://github.com/mikerowsey/dotfiles-basic.git \"$HOME/.dotfiles-basic\"; fi; cd \"$HOME/.dotfiles-basic\"; chmod +x bootstrap.sh; ./bootstrap.sh || echo 'bootstrap.sh failed (non-fatal)'; true"
 }
