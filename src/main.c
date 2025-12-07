@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "util.h"
+#include <stdio.h>
 
 int main(void) {
-    int result = add(2, 3);
-    printf("Hello from C dev container! 2 + 3 = %d\n", result);
+    printf("C Dev Container is ready!\n");
     return 0;
 }
