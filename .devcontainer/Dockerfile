@@ -34,9 +34,3 @@ RUN useradd -m -s /usr/bin/zsh vscode && \
 
 USER vscode
 WORKDIR /workspace
-
-# Bake in your dotfiles-basic repo and run bootstrap
-RUN git clone https://github.com/mikerowsey/dotfiles-basic.git ~/.dotfiles-basic && \
-    cd ~/.dotfiles-basic && \
-    chmod +x bootstrap.sh && \
-    ./bootstrap.sh
