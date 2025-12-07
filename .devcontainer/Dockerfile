@@ -18,6 +18,8 @@ RUN apt-get update && apt-get install -y \
     lsof \
     vim \
     git \
+    tmux \
+    htop \
     curl \
     wget \
     zip \
