@@ -1,4 +1,4 @@
-# c-dev-starter
+# c-dev-environment
 
 Containerized C/C++ development starter with:
 
