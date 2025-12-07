@@ -30,6 +30,21 @@
       }
     },
     {
+      "name": "gcc-asan-ubsan",
+      "displayName": "GCC Debug (ASan+UBSan)",
+      "generator": "Ninja",
+      "binaryDir": "build/gcc-asan-ubsan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_C_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_CXX_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address,undefined",
+        "CMAKE_SHARED_LINKER_FLAGS": "-fsanitize=address,undefined"
+      }
+    },
+    {
       "name": "clang-debug",
       "displayName": "Clang Debug",
       "generator": "Ninja",
@@ -76,6 +91,10 @@
     {
       "name": "gcc-release-build",
       "configurePreset": "gcc-release"
+    },
+    {
+      "name": "gcc-asan-ubsan-build",
+      "configurePreset": "gcc-asan-ubsan"
     },
     {
       "name": "clang-debug-build",
