@@ -1,14 +1,21 @@
 {
-  "name": "C Development",
-  "build": {
-    "dockerfile": "../Dockerfile"
-  },
-  "remoteUser": "dev",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "bash"
-  },
-  "extensions": [
-    "ms-vscode.cpptools",
-    "ms-vscode.cmake-tools"
-  ]
+    "name": "C Dev Starter",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+
+    "settings": {
+        "editor.formatOnSave": true,
+        "C_Cpp.formatting": "clangFormat",
+        "[c]": {
+            "editor.defaultFormatter": "ms-vscode.cpptools"
+        }
+    },
+
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools"
+    ],
+
+    "remoteUser": "vscode"
 }
