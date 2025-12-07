@@ -5,6 +5,7 @@
     "minor": 22,
     "patch": 0
   },
+
   "configurePresets": [
     {
       "name": "gcc-debug",
@@ -13,6 +14,17 @@
       "binaryDir": "build/gcc-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "gcc-release",
+      "displayName": "GCC Release",
+      "generator": "Ninja",
+      "binaryDir": "build/gcc-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++"
       }
@@ -27,16 +39,48 @@
         "CMAKE_C_COMPILER": "clang",
         "CMAKE_CXX_COMPILER": "clang++"
       }
+    },
+    {
+      "name": "clang-release",
+      "displayName": "Clang Release",
+      "generator": "Ninja",
+      "binaryDir": "build/clang-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++"
+      }
+    },
+    {
+      "name": "clang-asan-ubsan",
+      "displayName": "Clang Debug (ASan+UBSan)",
+      "generator": "Ninja",
+      "binaryDir": "build/clang-asan-ubsan",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_CXX_FLAGS": "-fsanitize=address,undefined -fno-omit-frame-pointer",
+        "CMAKE_EXE_LINKER_FLAGS": "-fsanitize=address,undefined",
+        "CMAKE_SHARED_LINKER_FLAGS": "-fsanitize=address,undefined"
+      }
     }
   ],
+
   "buildPresets": [
     {
       "name": "gcc-debug-build",
       "configurePreset": "gcc-debug"
     },
     {
+      "name": "gcc-release-build",
+      "configurePreset": "gcc-release"
+    },
+    {
       "name": "clang-debug-build",
       "configurePreset": "clang-debug"
-    }
-  ]
-}
+    },
+    {
+      "name": "clang-release-build",
+      "configurePreset":
